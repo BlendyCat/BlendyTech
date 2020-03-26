@@ -1,0 +1,17 @@
+com\blendycat\yeettech\machine\inventory\RailInventory$Events.class
+com\blendycat\yeettech\item\CustomRecipes.class
+com\blendycat\yeettech\machine\BoringMinecart.class
+com\blendycat\yeettech\Main.class
+com\blendycat\yeettech\machine\BoringMinecart$Events.class
+com\blendycat\yeettech\machine\inventory\MachineInventory$Item.class
+com\blendycat\yeettech\machine\BoringMinecart$StorageObject.class
+com\blendycat\yeettech\machine\BoringMinecart$Button.class
+com\blendycat\yeettech\machine\inventory\MachineInventory.class
+com\blendycat\yeettech\machine\inventory\RailInventory.class
+com\blendycat\yeettech\machine\Machine.class
+com\blendycat\yeettech\machine\inventory\FuelInventory.class
+com\blendycat\yeettech\machine\inventory\FuelInventory$Events.class
+com\blendycat\yeettech\item\CustomItemListener.class
+com\blendycat\yeettech\item\CustomItems.class
+com\blendycat\yeettech\machine\BoringMinecart$1.class
+com\blendycat\yeettech\machine\inventory\StorageInventory.class

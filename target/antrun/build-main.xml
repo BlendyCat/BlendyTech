@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy file="C:\Users\evanm\IdeaProjects\YeetTech\target/YeetTech.jar" todir="C:\Users\evanm\Desktop\Minecraft Server\plugins"/>
+</target>
+</project>
