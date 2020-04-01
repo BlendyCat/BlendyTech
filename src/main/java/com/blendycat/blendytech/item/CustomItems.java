@@ -1,4 +1,4 @@
-package com.blendycat.yeettech.item;
+package com.blendycat.blendytech.item;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

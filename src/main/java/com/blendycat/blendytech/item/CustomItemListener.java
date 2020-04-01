@@ -1,13 +1,9 @@
-package com.blendycat.yeettech.item;
+package com.blendycat.blendytech.item;
 
-import com.blendycat.yeettech.Main;
-import com.blendycat.yeettech.machine.BoringMinecart;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import com.blendycat.blendytech.Main;
+import com.blendycat.blendytech.machine.BoringMinecart;
+import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.block.data.Rail;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,7 +13,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
-import org.bukkit.util.Vector;
 
 public class CustomItemListener implements Listener {
 

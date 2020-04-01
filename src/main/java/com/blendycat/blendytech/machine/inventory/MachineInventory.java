@@ -1,8 +1,7 @@
-package com.blendycat.yeettech.machine.inventory;
+package com.blendycat.blendytech.machine.inventory;
 
-import com.blendycat.yeettech.machine.Machine;
+import com.blendycat.blendytech.machine.Machine;
 import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.inventory.ItemStack;
 import org.mongodb.morphia.annotations.Embedded;
 
 import java.util.Map;

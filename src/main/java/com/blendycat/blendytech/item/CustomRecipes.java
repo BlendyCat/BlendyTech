@@ -1,6 +1,6 @@
-package com.blendycat.yeettech.item;
+package com.blendycat.blendytech.item;
 
-import com.blendycat.yeettech.Main;
+import com.blendycat.blendytech.Main;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Server;

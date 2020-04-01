@@ -1,12 +1,11 @@
-package com.blendycat.yeettech.machine;
+package com.blendycat.blendytech.machine;
 
-import com.blendycat.yeettech.Main;
-import com.blendycat.yeettech.item.CustomItems;
-import com.blendycat.yeettech.machine.inventory.FuelInventory;
-import com.blendycat.yeettech.machine.inventory.MachineInventory;
-import com.blendycat.yeettech.machine.inventory.RailInventory;
-import com.blendycat.yeettech.machine.inventory.StorageInventory;
-import org.bson.types.ObjectId;
+import com.blendycat.blendytech.Main;
+import com.blendycat.blendytech.item.CustomItems;
+import com.blendycat.blendytech.machine.inventory.FuelInventory;
+import com.blendycat.blendytech.machine.inventory.MachineInventory;
+import com.blendycat.blendytech.machine.inventory.RailInventory;
+import com.blendycat.blendytech.machine.inventory.StorageInventory;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.*;

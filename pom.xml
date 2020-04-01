@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>YeetTech</artifactId>
+    <artifactId>BlendyTech</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <repositories>
@@ -14,12 +14,6 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/releases/</url>
         </repository>
-
-        <repository>
-            <id>citizens-repo</id>
-            <url>https://repo.citizensnpcs.co/</url>
-        </repository>
-
     </repositories>
 
     <dependencies>
@@ -49,7 +43,7 @@
     </dependencies>
 
     <build>
-        <finalName>YeetTech</finalName>
+        <finalName>BlendyTech</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>

@@ -1,11 +1,11 @@
-package com.blendycat.yeettech;
+package com.blendycat.blendytech;
 
-import com.blendycat.yeettech.item.CustomItemListener;
-import com.blendycat.yeettech.item.CustomRecipes;
-import com.blendycat.yeettech.machine.Machine;
-import com.blendycat.yeettech.machine.BoringMinecart;
-import com.blendycat.yeettech.machine.inventory.FuelInventory;
-import com.blendycat.yeettech.machine.inventory.RailInventory;
+import com.blendycat.blendytech.item.CustomItemListener;
+import com.blendycat.blendytech.item.CustomRecipes;
+import com.blendycat.blendytech.machine.Machine;
+import com.blendycat.blendytech.machine.BoringMinecart;
+import com.blendycat.blendytech.machine.inventory.FuelInventory;
+import com.blendycat.blendytech.machine.inventory.RailInventory;
 import com.mongodb.MongoClient;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;

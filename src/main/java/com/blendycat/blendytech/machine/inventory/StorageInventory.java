@@ -1,10 +1,8 @@
-package com.blendycat.yeettech.machine.inventory;
+package com.blendycat.blendytech.machine.inventory;
 
-import com.blendycat.yeettech.machine.Machine;
+import com.blendycat.blendytech.machine.Machine;
 import org.bukkit.Bukkit;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
 
 public class StorageInventory extends MachineInventory {
 
