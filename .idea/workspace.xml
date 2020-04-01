@@ -2,21 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dd0e14e-ebba-4037-aac3-fd96d0d72156" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/evanm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/evanm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YeetTech.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BlendyTech.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/yeettech/item/CustomItemListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/yeettech/item/CustomItemListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/YeetTech-1.0-SNAPSHOT-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/YeetTech-1.0-SNAPSHOT-shaded.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/YeetTech.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/YeetTech.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/item/CustomItemListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/item/CustomItemListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$Events.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$Events.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/BoringMinecart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/BoringMinecart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/Machine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/Machine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/FuelInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/FuelInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/MachineInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/MachineInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/RailInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/RailInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/StorageInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/StorageInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/YeetTech-1.0-SNAPSHOT-shaded.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/YeetTech.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/antrun/build-main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/antrun/build-main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/item/CustomItemListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/item/CustomItems.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/item/CustomRecipes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$Button.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$Events.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$StorageObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/Machine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/FuelInventory$Events.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/FuelInventory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/MachineInventory$Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/MachineInventory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/RailInventory$Events.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/RailInventory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/StorageInventory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-YeetTech.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-YeetTech.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-YeetTech.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,30 +117,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584322079399" />
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1585391671717">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1585733318456">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585391671717" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585733318456" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584779293015">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584779293015" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585537210623">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585747361778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585537210623" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585537210623">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585747361778" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585747361777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585537210623" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585537210623">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585747361777" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585747361777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585537210623" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585537210623">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585747361777" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585747361778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585537210623" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585747361778" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1584932914450">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

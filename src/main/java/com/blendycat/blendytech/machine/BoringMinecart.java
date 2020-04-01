@@ -61,22 +61,7 @@ public class BoringMinecart implements Machine {
         }
     }
 
-    @org.mongodb.morphia.annotations.Entity
-            (value="BoringMinecart", noClassnameStored=true)
-    public static class StorageObject {
-        @Id
-        public String minecartUUID;
-        @Indexed
-        public String armorStandUUID;
-        @Embedded
-        public List<MachineInventory.Item> storage;
-        @Embedded
-        public List<MachineInventory.Item> fuel;
-        @Embedded
-        public List<MachineInventory.Item> rails;
-
-        public StorageObject() {}
-    }
+    public static final String TYPE = "boring-minecart";
 
     private boolean running = false;
     private long burnTime = 0;
@@ -117,9 +102,9 @@ public class BoringMinecart implements Machine {
         // set the time required to break the block
         //mineTime = MINE_TIME;
         controlInv = Bukkit.createInventory(this, 9, INVENTORY_NAME);
-        storageInv = new StorageInventory(this,54, ChatColor.DARK_PURPLE + "Boring Minecart Storage");
-        fuelInv = new FuelInventory(this,27, ChatColor.DARK_PURPLE + "Boring Minecart Fuel");
-        railsInv = new RailInventory(this, 27, ChatColor.DARK_PURPLE + "Boring Minecart Rails");
+        storageInv = new StorageInventory(54, ChatColor.DARK_PURPLE + "Boring Minecart Storage");
+        fuelInv = new FuelInventory(27, ChatColor.DARK_PURPLE + "Boring Minecart Fuel");
+        railsInv = new RailInventory(27, ChatColor.DARK_PURPLE + "Boring Minecart Rails");
         // this is the tool that will be used to break the blocks
         tool = new ItemStack(Material.DIAMOND_PICKAXE);
 
@@ -299,65 +284,31 @@ public class BoringMinecart implements Machine {
     }
 
     @Override
-    public void save(Datastore ds) {
-        final StorageObject object = new StorageObject();
-        object.minecartUUID = minecart.getUniqueId().toString();
-        object.armorStandUUID = armorStand.getUniqueId().toString();
-
-        object.storage = new ArrayList<>();
-        for(ItemStack i : storageInv.getInventory().getContents()) {
-            object.storage.add(new MachineInventory.Item(i));
-        }
-        object.fuel = new ArrayList<>();
-        for(ItemStack i : fuelInv.getInventory().getContents()) {
-            object.fuel.add(new MachineInventory.Item(i));
-        }
-        object.rails = new ArrayList<>();
-        for(ItemStack i : railsInv.getInventory().getContents()) {
-            object.rails.add(new MachineInventory.Item(i));
-        }
-
-        // save to the database
-        ds.save(object);
+    public Map<String, Object> serialize() {
+        Map<String, Object> object = new HashMap<>();
+        object.put("type", TYPE);
+        object.put("minecartUUID", minecart.getUniqueId().toString());
+        object.put("armorStandUUID", armorStand.getUniqueId().toString());
+        object.put("tool", tool.serialize());
+        object.put("storage", storageInv.serialize());
+        object.put("fuel", fuelInv.serialize());
+        object.put("rails", railsInv.serialize());
+        return object;
     }
 
-    public static BoringMinecart load(Datastore ds, StorageObject object) {
-        Minecart minecart = (Minecart) Bukkit.getEntity(UUID.fromString(object.minecartUUID));
-        ArmorStand armorStand = (ArmorStand) Bukkit.getEntity(UUID.fromString(object.armorStandUUID));
+    public static BoringMinecart deserialize(Map<String, Object> object) {
+        ArmorStand armorStand = (ArmorStand) Bukkit.getEntity(UUID.fromString((String) object.get("armorStandUUID")));
+        Minecart minecart = (Minecart) Bukkit.getEntity(UUID.fromString((String) object.get("minecartUUID")));
         if(minecart != null && armorStand != null) {
+            BoringMinecart boringMinecart = new BoringMinecart(minecart, armorStand);
+            boringMinecart.fuelInv = FuelInventory.deserialize((Map<String, Object>) object.get("fuel"));
+            boringMinecart.storageInv = StorageInventory.deserialize((Map<String, Object>) object.get("storage"));
+            boringMinecart.railsInv = RailInventory.deserialize((Map<String, Object>) object.get("rails"));
+            boringMinecart.tool = ItemStack.deserialize((Map<String, Object>) object.get("tool"));
 
-            BoringMinecart boring = new BoringMinecart(minecart, armorStand);
-            Inventory storage = boring.storageInv.getInventory();
-            for (int i = 0; i < object.storage.size(); i++) {
-                MachineInventory.Item item = object.storage.get(i);
-                if (item.map != null) {
-                    ItemStack itemStack = ItemStack.deserialize(item.map);
-                    storage.setItem(i, itemStack);
-                }
-            }
-
-            Inventory fuel = boring.fuelInv.getInventory();
-            for (int i = 0; i < object.fuel.size(); i++) {
-                MachineInventory.Item item = object.fuel.get(i);
-                if (item.map != null) {
-                    ItemStack itemStack = ItemStack.deserialize(item.map);
-                    fuel.setItem(i, itemStack);
-                }
-            }
-
-            Inventory rails = boring.railsInv.getInventory();
-            for (int i = 0; i < object.rails.size(); i++) {
-                MachineInventory.Item item = object.rails.get(i);
-                if (item.map != null) {
-                    ItemStack itemStack = ItemStack.deserialize(item.map);
-                    rails.setItem(i, itemStack);
-                }
-            }
-            return boring;
-        } else {
-            ds.delete(object);
-            return null;
+            return boringMinecart;
         }
+        return null;
     }
 
     /**
@@ -443,13 +394,6 @@ public class BoringMinecart implements Machine {
                             // drop the items
                             for(ItemStack item : drops) {
                                 if(item != null) world.dropItemNaturally(location, item);
-                            }
-                            Datastore datastore = Main.getDatastore();
-                            Query<StorageObject> query = datastore.createQuery(StorageObject.class)
-                                    .field("minecartUUID").equal(minecart.getUniqueId().toString());
-                            List<StorageObject> results = query.asList();
-                            for(StorageObject so : results) {
-                                datastore.delete(so);
                             }
                             // exit for loop
                             break;

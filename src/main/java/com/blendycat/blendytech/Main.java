@@ -6,37 +6,27 @@ import com.blendycat.blendytech.machine.Machine;
 import com.blendycat.blendytech.machine.BoringMinecart;
 import com.blendycat.blendytech.machine.inventory.FuelInventory;
 import com.blendycat.blendytech.machine.inventory.RailInventory;
-import com.mongodb.MongoClient;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.Morphia;
-import org.mongodb.morphia.query.Query;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Main extends JavaPlugin {
 
     private static Main instance;
-
-    private static MongoClient mc;
-    private static Morphia morphia;
-    private static Datastore datastore;
 
     private static List<Machine> machines;
 
     @Override
     public void onEnable() {
         instance = this;
-
-        mc = new MongoClient();
-        morphia = new Morphia();
-        morphia.map();
-
-        datastore = morphia.createDatastore(mc, "Minecraft");
-        datastore.ensureIndexes();
 
         CustomRecipes customRecipes = new CustomRecipes(this);
         customRecipes.registerRecipes();
@@ -50,13 +40,21 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new RailInventory.Events(), this);
 
         machines = new ArrayList<>();
-
-        Query<BoringMinecart.StorageObject> query = datastore.createQuery(BoringMinecart.StorageObject.class);
-        List<BoringMinecart.StorageObject> results = query.asList();
-        for(BoringMinecart.StorageObject object : results) {
-            BoringMinecart cart = BoringMinecart.load(datastore, object);
-            if(cart != null) {
-                machines.add(BoringMinecart.load(datastore, object));
+        File file = new File(getDataFolder(), "saves.json");
+        if(file.exists()) {
+            try {
+                Reader reader = new FileReader(file);
+                JSONParser parser = new JSONParser();
+                JSONArray array = (JSONArray) parser.parse(reader);
+                for(Object object: array) {
+                    Map<String, Object> map = (Map<String, Object>) object;
+                    if(map.get("type").equals(BoringMinecart.TYPE)) {
+                        BoringMinecart cart = BoringMinecart.deserialize(map);
+                        if(cart != null) machines.add(cart);
+                    }
+                }
+            } catch (IOException | ParseException e) {
+                e.printStackTrace();
             }
         }
 
@@ -69,17 +67,25 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        JSONArray array = new JSONArray();
         for(Machine machine : machines) {
-            machine.save(datastore);
+            array.add(machine.serialize());
+        }
+        File file = new File(getDataFolder(), "saves.json");
+        try {
+            if(!file.exists()) {
+                getDataFolder().mkdir();
+            }
+            FileWriter writer = new FileWriter(file);
+            writer.write(array.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public static Main getInstance() {
         return instance;
-    }
-
-    public static Datastore getDatastore() {
-        return datastore;
     }
 
 
