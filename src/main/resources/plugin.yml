@@ -1,4 +1,4 @@
 name: BlendyTech
 main: com.blendycat.blendytech.Main
-version: 0.0.3
+version: ${project.version}
 api-version: '1.15'
