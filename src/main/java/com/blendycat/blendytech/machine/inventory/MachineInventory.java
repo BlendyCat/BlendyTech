@@ -1,23 +1,20 @@
 package com.blendycat.blendytech.machine.inventory;
 
-import com.blendycat.blendytech.Main;
-import com.blendycat.blendytech.machine.Machine;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.EnchantmentStorageMeta;
-import org.bukkit.inventory.meta.ItemMeta;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class MachineInventory implements InventoryHolder, Serializable {
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
+import com.blendycat.blendytech.machine.Machine;
+
+public abstract class MachineInventory implements InventoryHolder, Serializable {
+    
+    private static final long serialVersionUID = 4836481158047798250L;
+    
     private Machine machine;
 
     public Machine getMachine() {

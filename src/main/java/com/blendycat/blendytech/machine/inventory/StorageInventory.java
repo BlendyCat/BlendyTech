@@ -1,18 +1,18 @@
 package com.blendycat.blendytech.machine.inventory;
 
-import com.blendycat.blendytech.machine.Machine;
+import java.util.Map;
+
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Map;
-
 public class StorageInventory extends MachineInventory {
-
+    
+    private static final long serialVersionUID = -7272438715760480145L;
+    
     private Inventory inventory;
     private int size;
     private String name;
@@ -32,7 +32,7 @@ public class StorageInventory extends MachineInventory {
     }
 
     public static StorageInventory deserialize(Map<String, Object> object) {
-        long size = (long) object.get("size");
+        int size = (int) object.get("size");
         String name = (String) object.get("name");
         StorageInventory storageInventory = new StorageInventory((int)size, name);
         Inventory inv = storageInventory.getInventory();
