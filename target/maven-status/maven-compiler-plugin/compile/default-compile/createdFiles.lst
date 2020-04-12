@@ -9,6 +9,7 @@ com\blendycat\blendytech\machine\Machine.class
 com\blendycat\blendytech\machine\BoringMinecart$Button.class
 com\blendycat\blendytech\machine\inventory\RailInventory$Events.class
 com\blendycat\blendytech\machine\inventory\RailInventory.class
+com\blendycat\blendytech\machine\inventory\StorageInventory$Events.class
 com\blendycat\blendytech\machine\inventory\StorageInventory.class
 com\blendycat\blendytech\item\CustomItemListener.class
 com\blendycat\blendytech\item\CustomRecipes.class

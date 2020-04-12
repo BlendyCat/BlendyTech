@@ -2,6 +2,10 @@ package com.blendycat.blendytech.machine.inventory;
 
 import com.blendycat.blendytech.machine.Machine;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -45,5 +49,18 @@ public class StorageInventory extends MachineInventory {
     @Override
     public Inventory getInventory() {
         return inventory;
+    }
+
+    public static class Events implements Listener {
+
+        @EventHandler
+        public void onInventoryClick(InventoryClickEvent e) {
+            if(e.getCurrentItem() != null && e.getInventory().getHolder() instanceof StorageInventory) {
+                ItemStack item = e.getCurrentItem();
+                if(item.hasItemMeta()) {
+                    e.setCancelled(true);
+                }
+            }
+        }
     }
 }

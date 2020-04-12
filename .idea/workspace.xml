@@ -2,41 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dd0e14e-ebba-4037-aac3-fd96d0d72156" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/evanm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/evanm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/item/CustomItemListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/item/CustomItemListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/BoringMinecart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/BoringMinecart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/Machine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/Machine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/FuelInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/FuelInventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/MachineInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/MachineInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/RailInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/RailInventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/StorageInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blendycat/blendytech/machine/inventory/StorageInventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/YeetTech-1.0-SNAPSHOT-shaded.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/YeetTech.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/antrun/build-main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/antrun/build-main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/item/CustomItemListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/item/CustomItems.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/item/CustomRecipes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$Button.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$Events.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart$StorageObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/BoringMinecart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/Machine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/FuelInventory$Events.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/FuelInventory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/MachineInventory$Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/MachineInventory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/RailInventory$Events.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/RailInventory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blendycat/yeettech/machine/inventory/StorageInventory.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-YeetTech.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,9 +44,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
@@ -110,7 +90,19 @@
       <option name="presentableId" value="Default" />
       <updated>1584293086784</updated>
     </task>
+    <task id="LOCAL-00001" summary="saves to JSON instead of MongoDB now for usability purposes">
+      <created>1585747671670</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585747671670</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="saves to JSON instead of MongoDB now for usability purposes" />
+    <option name="LAST_COMMIT_MESSAGE" value="saves to JSON instead of MongoDB now for usability purposes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584322079399">
@@ -125,22 +117,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584779293015" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585747361778">
+    <state x="707" y="367" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1585914427801">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585747361778" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585747361777">
+    <state x="707" y="367" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1585914427801" />
+    <state x="578" y="114" key="CommitChangelistDialog2" timestamp="1585747670596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585747361777" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585747361777">
+    <state x="578" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585747670596" />
+    <state x="739" y="274" key="FileChooserDialogImpl" timestamp="1585887408211">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585747361777" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585747361778">
+    <state x="739" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585887408211" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586681268045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585747361778" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586681268045" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586681268045">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586681268045" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586681268045">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586681268045" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586681268045">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586681268045" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1584932914450">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -157,18 +161,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584932914450" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1585731659432">
+    <state x="735" y="231" key="RollbackChangesDialog" timestamp="1585912232949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585731659432" />
-    <state x="669" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1585731823449">
+    <state x="735" y="231" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585912232949" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585907582495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="669" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585731823449" />
-    <state x="342" y="215" key="new project wizard" timestamp="1585261125812">
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585907582495" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585747683543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="342" y="215" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1585261125812" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585747683543" />
+    <state x="669" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1585870177093">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585870177093" />
+    <state x="342" y="215" key="new project wizard" timestamp="1586330071623">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="215" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1586330071623" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584827777162">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

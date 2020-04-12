@@ -14,16 +14,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.vehicle.VehicleDestroyEvent;
+import org.bukkit.event.world.ChunkLoadEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.EulerAngle;
 import org.bukkit.util.Vector;
-import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.annotations.Embedded;
-import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.Indexed;
-import org.mongodb.morphia.query.Query;
 
 import java.util.*;
 
@@ -91,6 +87,8 @@ public class BoringMinecart implements Machine {
 
     private Minecart minecart;
     private ArmorStand armorStand;
+    private UUID minecartUUID;
+    private UUID armorStandUUID;
 
     private int x = 0;
     private int z = 0;
@@ -99,8 +97,9 @@ public class BoringMinecart implements Machine {
         this.minecart = minecart;
         this.armorStand = armorStand;
 
-        // set the time required to break the block
-        //mineTime = MINE_TIME;
+        this.minecartUUID = minecart.getUniqueId();
+        this.armorStandUUID = armorStand.getUniqueId();
+
         controlInv = Bukkit.createInventory(this, 9, INVENTORY_NAME);
         storageInv = new StorageInventory(54, ChatColor.DARK_PURPLE + "Boring Minecart Storage");
         fuelInv = new FuelInventory(27, ChatColor.DARK_PURPLE + "Boring Minecart Fuel");
@@ -115,7 +114,28 @@ public class BoringMinecart implements Machine {
         controlInv.setItem(6, Button.RAILS.getItem());
     }
 
+    protected BoringMinecart(UUID minecartUUID, UUID armorStandUUID) {
+        this.minecartUUID = minecartUUID;
+        this.armorStandUUID = armorStandUUID;
+
+        minecart = (Minecart) Bukkit.getEntity(minecartUUID);
+        armorStand = (ArmorStand) Bukkit.getEntity(armorStandUUID);
+
+        controlInv = Bukkit.createInventory(this, 9, INVENTORY_NAME);
+
+        controlInv.setItem(2, Button.START.getItem());
+        controlInv.setItem(3, Button.STOP.getItem());
+        controlInv.setItem(4, Button.STORAGE.getItem());
+        controlInv.setItem(5, Button.FUEL.getItem());
+        controlInv.setItem(6, Button.RAILS.getItem());
+    }
+
     public void update() {
+        if(Main.getUnloaded().containsKey(minecartUUID)) return;
+        if(minecart == null || armorStand == null) {
+            Main.getUnloaded().put(minecartUUID, this);
+            return;
+        }
         x = 0;
         z = 0;
         switch(minecart.getFacing()) {
@@ -164,13 +184,21 @@ public class BoringMinecart implements Machine {
                             if (block.getType().getHardness() >= 0) {
                                 Inventory storage = storageInv.getInventory();
                                 Collection<ItemStack> drops = block.getDrops(tool);
-                                block.setType(Material.AIR);
-                                HashMap<Integer, ItemStack> rejects = storage.addItem(drops.toArray(new ItemStack[0]));
-                                if (rejects.size() > 0) {
-                                    for (ItemStack i : rejects.values()) {
-                                        minecart.getWorld().dropItemNaturally(block.getLocation(), i);
+                                Collection<ItemStack> rejects = new ArrayList<>();
+                                for(ItemStack i : drops) {
+                                    if(i.hasItemMeta()) {
+                                        rejects.add(i);
+                                        drops.remove(i);
                                     }
+                                }
+                                block.setType(Material.AIR);
+                                HashMap<Integer, ItemStack> unfilled = storage.addItem(drops.toArray(new ItemStack[0]));
+                                if(unfilled.size() > 0) {
                                     running = false;
+                                    rejects.addAll(unfilled.values());
+                                }
+                                for (ItemStack i : rejects) {
+                                    minecart.getWorld().dropItemNaturally(block.getLocation(), i);
                                 }
                             } else {
                                 running = false;
@@ -274,6 +302,10 @@ public class BoringMinecart implements Machine {
         return minecart;
     }
 
+    public UUID getUUID() {
+        return minecartUUID;
+    }
+
     public ArmorStand getArmorStand() {
         return armorStand;
     }
@@ -287,8 +319,8 @@ public class BoringMinecart implements Machine {
     public Map<String, Object> serialize() {
         Map<String, Object> object = new HashMap<>();
         object.put("type", TYPE);
-        object.put("minecartUUID", minecart.getUniqueId().toString());
-        object.put("armorStandUUID", armorStand.getUniqueId().toString());
+        object.put("minecartUUID", minecartUUID.toString());
+        object.put("armorStandUUID", armorStandUUID.toString());
         object.put("tool", tool.serialize());
         object.put("storage", storageInv.serialize());
         object.put("fuel", fuelInv.serialize());
@@ -297,18 +329,15 @@ public class BoringMinecart implements Machine {
     }
 
     public static BoringMinecart deserialize(Map<String, Object> object) {
-        ArmorStand armorStand = (ArmorStand) Bukkit.getEntity(UUID.fromString((String) object.get("armorStandUUID")));
-        Minecart minecart = (Minecart) Bukkit.getEntity(UUID.fromString((String) object.get("minecartUUID")));
-        if(minecart != null && armorStand != null) {
-            BoringMinecart boringMinecart = new BoringMinecart(minecart, armorStand);
-            boringMinecart.fuelInv = FuelInventory.deserialize((Map<String, Object>) object.get("fuel"));
-            boringMinecart.storageInv = StorageInventory.deserialize((Map<String, Object>) object.get("storage"));
-            boringMinecart.railsInv = RailInventory.deserialize((Map<String, Object>) object.get("rails"));
-            boringMinecart.tool = ItemStack.deserialize((Map<String, Object>) object.get("tool"));
+        UUID armorStand = UUID.fromString((String) object.get("armorStandUUID"));
+        UUID minecart = UUID.fromString((String) object.get("minecartUUID"));
+        BoringMinecart boringMinecart = new BoringMinecart(minecart, armorStand);
+        boringMinecart.fuelInv = FuelInventory.deserialize((Map<String, Object>) object.get("fuel"));
+        boringMinecart.storageInv = StorageInventory.deserialize((Map<String, Object>) object.get("storage"));
+        boringMinecart.railsInv = RailInventory.deserialize((Map<String, Object>) object.get("rails"));
+        boringMinecart.tool = ItemStack.deserialize((Map<String, Object>) object.get("tool"));
 
-            return boringMinecart;
-        }
-        return null;
+        return boringMinecart;
     }
 
     /**
@@ -323,10 +352,10 @@ public class BoringMinecart implements Machine {
                 if(entity.getCustomName().equals(BoringMinecart.ARMORSTAND_NAME) ||
                         entity.getCustomName().equals(BoringMinecart.MINECART_NAME)) {
                     e.setCancelled(true);
-                    for(Machine machine : Main.getMachines()) {
+                    for(Machine machine : Main.getMachines().values()) {
                         if(machine instanceof BoringMinecart) {
                             BoringMinecart cart = (BoringMinecart) machine;
-                            if(cart.getArmorStand().equals(entity) || cart.getMinecart().equals(entity)) {
+                            if(cart.minecartUUID.equals(entity.getUniqueId()) || cart.armorStandUUID.equals(entity.getUniqueId())) {
                                 e.getPlayer().openInventory(cart.getInventory());
                                 break;
                             }
@@ -367,11 +396,11 @@ public class BoringMinecart implements Machine {
         public void onVehicleDestroy(VehicleDestroyEvent e) {
             if(e.getVehicle() instanceof Minecart) {
                 Minecart minecart = (Minecart) e.getVehicle();
-                List<Machine> machines = Main.getMachines();
-                for(Machine machine : machines) {
+                HashMap<UUID, Machine> machines = Main.getMachines();
+                for(Machine machine : machines.values()) {
                     if(machine instanceof BoringMinecart) {
                         BoringMinecart cart = (BoringMinecart) machine;
-                        if(cart.getMinecart().equals(minecart)) {
+                        if(cart.minecartUUID.equals(minecart.getUniqueId())) {
                             // cancel the event
                             e.setCancelled(true);
                             // get the location and world of the minecart
@@ -384,7 +413,7 @@ public class BoringMinecart implements Machine {
                             drops.addAll(Arrays.asList(cart.fuelInv.getInventory().getContents()));
                             drops.addAll(Arrays.asList(cart.railsInv.getInventory().getContents()));
                             // remove the boring minecart from the machine list
-                            machines.remove(cart);
+                            machines.remove(cart.getUUID());
                             // remove all passengers from the minecart
                             for(Entity entity : minecart.getPassengers()) {
                                 entity.remove();
@@ -397,6 +426,24 @@ public class BoringMinecart implements Machine {
                             }
                             // exit for loop
                             break;
+                        }
+                    }
+                }
+            }
+        }
+
+        @EventHandler
+        public void onLoadChunk(ChunkLoadEvent e) {
+            Entity[] entities = e.getChunk().getEntities();
+            for(Entity entity : entities) {
+                for(UUID uuid : Main.getUnloaded().keySet()) {
+                    if(uuid.equals(entity.getUniqueId())) {
+                        Machine machine = Main.getUnloaded().get(uuid);
+                        if(machine instanceof BoringMinecart) {
+                            BoringMinecart cart = (BoringMinecart) machine;
+                            cart.minecart = (Minecart) entity;
+                            cart.armorStand = (ArmorStand) Bukkit.getEntity(cart.armorStandUUID);
+                            Main.getUnloaded().remove(uuid);
                         }
                     }
                 }

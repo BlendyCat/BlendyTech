@@ -6,7 +6,10 @@ import com.blendycat.blendytech.machine.Machine;
 import com.blendycat.blendytech.machine.BoringMinecart;
 import com.blendycat.blendytech.machine.inventory.FuelInventory;
 import com.blendycat.blendytech.machine.inventory.RailInventory;
+import com.blendycat.blendytech.machine.inventory.StorageInventory;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONArray;
@@ -14,15 +17,14 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main extends JavaPlugin {
 
     private static Main instance;
 
-    private static List<Machine> machines;
+    private static HashMap<UUID, Machine> machines;
+    private static HashMap<UUID, Machine> unloaded;
 
     @Override
     public void onEnable() {
@@ -38,8 +40,10 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new BoringMinecart.Events(), this);
         pluginManager.registerEvents(new FuelInventory.Events(), this);
         pluginManager.registerEvents(new RailInventory.Events(), this);
+        pluginManager.registerEvents(new StorageInventory.Events(), this);
 
-        machines = new ArrayList<>();
+        machines = new HashMap<>();
+        unloaded = new HashMap<>();
         File file = new File(getDataFolder(), "saves.json");
         if(file.exists()) {
             try {
@@ -50,7 +54,8 @@ public class Main extends JavaPlugin {
                     Map<String, Object> map = (Map<String, Object>) object;
                     if(map.get("type").equals(BoringMinecart.TYPE)) {
                         BoringMinecart cart = BoringMinecart.deserialize(map);
-                        if(cart != null) machines.add(cart);
+                        machines.put(cart.getUUID(), cart);
+                        if(cart.getMinecart() == null) unloaded.put(cart.getUUID(), cart);
                     }
                 }
             } catch (IOException | ParseException e) {
@@ -59,7 +64,7 @@ public class Main extends JavaPlugin {
         }
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getInstance(), ()-> {
-            for(Machine machine : machines) {
+            for(Machine machine : machines.values()) {
                 machine.update();
             }
         }, 1,1);
@@ -68,7 +73,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         JSONArray array = new JSONArray();
-        for(Machine machine : machines) {
+        for(Machine machine : machines.values()) {
             array.add(machine.serialize());
         }
         File file = new File(getDataFolder(), "saves.json");
@@ -89,8 +94,12 @@ public class Main extends JavaPlugin {
     }
 
 
-    public static List<Machine> getMachines() {
+    public static HashMap<UUID, Machine> getMachines() {
         return machines;
+    }
+
+    public static HashMap<UUID, Machine> getUnloaded() {
+        return unloaded;
     }
 
 

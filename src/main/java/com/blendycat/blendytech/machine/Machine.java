@@ -1,7 +1,6 @@
 package com.blendycat.blendytech.machine;
 
 import org.bukkit.inventory.InventoryHolder;
-import org.mongodb.morphia.Datastore;
 
 import java.io.Serializable;
 import java.util.Map;

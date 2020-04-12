@@ -61,7 +61,7 @@ public class CustomItemListener implements Listener {
                     // Riding time
                     minecart.addPassenger(armorStand);
                     BoringMinecart boringMinecart = new BoringMinecart(minecart, armorStand);
-                    Main.getMachines().add(boringMinecart);
+                    Main.getMachines().put(minecart.getUniqueId(), boringMinecart);
                     e.getItem().setAmount(e.getItem().getAmount()-1);
                     Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), ()-> {
                         minecart.setRotation(yaw, 0);
