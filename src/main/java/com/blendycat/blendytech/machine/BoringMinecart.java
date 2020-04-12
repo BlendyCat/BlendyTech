@@ -1,14 +1,23 @@
 package com.blendycat.blendytech.machine;
 
-import com.blendycat.blendytech.Main;
-import com.blendycat.blendytech.item.CustomItems;
-import com.blendycat.blendytech.machine.inventory.FuelInventory;
-import com.blendycat.blendytech.machine.inventory.MachineInventory;
-import com.blendycat.blendytech.machine.inventory.RailInventory;
-import com.blendycat.blendytech.machine.inventory.StorageInventory;
-import org.bukkit.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.entity.*;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Minecart;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -21,7 +30,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.EulerAngle;
 import org.bukkit.util.Vector;
 
-import java.util.*;
+import com.blendycat.blendytech.Main;
+import com.blendycat.blendytech.item.CustomItems;
+import com.blendycat.blendytech.machine.inventory.FuelInventory;
+import com.blendycat.blendytech.machine.inventory.RailInventory;
+import com.blendycat.blendytech.machine.inventory.StorageInventory;
 
 
 public class BoringMinecart implements Machine {
@@ -155,6 +168,8 @@ public class BoringMinecart implements Machine {
                 x = -1;
                 armorStand.setRotation(90, 0);
                 break;
+        default:
+            break;
         }
         if(running) {
             if(burnTime == 0) {
@@ -396,7 +411,7 @@ public class BoringMinecart implements Machine {
         public void onVehicleDestroy(VehicleDestroyEvent e) {
             if(e.getVehicle() instanceof Minecart) {
                 Minecart minecart = (Minecart) e.getVehicle();
-                HashMap<UUID, Machine> machines = Main.getMachines();
+                Map<UUID, Machine> machines = Main.getMachines();
                 for(Machine machine : machines.values()) {
                     if(machine instanceof BoringMinecart) {
                         BoringMinecart cart = (BoringMinecart) machine;

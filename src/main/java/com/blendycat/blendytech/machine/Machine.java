@@ -1,9 +1,8 @@
 package com.blendycat.blendytech.machine;
 
-import org.bukkit.inventory.InventoryHolder;
-
-import java.io.Serializable;
 import java.util.Map;
+
+import org.bukkit.inventory.InventoryHolder;
 
 public interface Machine extends InventoryHolder {
 
